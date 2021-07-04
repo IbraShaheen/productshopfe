@@ -1,4 +1,3 @@
-// Styling
 import { Logo, NavItem, ThemeButton } from "../styles";
 
 import darkLogo from "../dark-logo.png";
@@ -16,6 +15,9 @@ const NavBar = ({ currentTheme, toggleTheme }) => {
         </NavItem>
         <NavItem className="nav-item" to="/shops" >
           Shops
+        </NavItem>
+        <NavItem className="nav-item" to="/signup" >
+          Signup
         </NavItem>
         <ThemeButton className="nav-item" onClick={toggleTheme}>
           {currentTheme === "light" ? "Dark" : "Light"} Mode

@@ -6,6 +6,7 @@ import ProductDetail from "./ProductDetail";
 import ProductList from "./ProductList";
 import Home from "./Home";
 import { useSelector } from "react-redux";
+import Signup from "./Signup";
 
 const Routes = ()=>{
 
@@ -32,6 +33,10 @@ const Routes = ()=>{
           </Route>
           <Route path="/products">
             <ProductList products={products}  />
+          </Route>
+
+          <Route path ="/signup">
+            <Signup/>
           </Route>
           <Route exact path="/">
             <Home />
