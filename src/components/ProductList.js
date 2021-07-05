@@ -5,7 +5,8 @@ import ProductItem from "./ProductItem";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+
 
 const ProductList = (props) => {
 
@@ -13,6 +14,8 @@ const ProductList = (props) => {
   const products= props.products;
   console.log(products)
   const [query, setQuery] = useState("");
+
+  const user = useSelector(state => state.user.user)// bring it from recucer state
 
   const productList = products
     .filter((product) =>
@@ -28,12 +31,29 @@ const ProductList = (props) => {
 
   return (
     <div>
+      {user ?
+        <>
       <SearchBar setQuery={setQuery} />
       {/* <Link to="/products/FormProduct">
       <button type="button" class="btn btn-secondary">Add a Product</button>
         </Link> */}
       <ListWrapper>{productList}</ListWrapper>
+          </>
+          :
+          <>
+            <Redirect to="/"/>
+          </>
+      }
     </div>
+
+
+  //   <div>
+  //   <SearchBar setQuery={setQuery} />
+  //   {/* <Link to="/products/FormProduct">
+  //   <button type="button" class="btn btn-secondary">Add a Product</button>
+  //     </Link> */}
+  //   <ListWrapper>{productList}</ListWrapper>
+  // </div>
   );
 };
 

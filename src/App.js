@@ -47,13 +47,15 @@ function App() {
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
 
   return (
-    <ThemeProvider theme={theme[currentTheme]}>
+    <center>
+        <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
       {loadingProduct || loadingShop ? <BeatLoader></BeatLoader>: <Routes />}
       
     
     </ThemeProvider>
+    </center>
   );
 }
 

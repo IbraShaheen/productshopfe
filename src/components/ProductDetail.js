@@ -8,7 +8,8 @@ import { useSelector } from "react-redux";
 
 const ProductDetail = () => {
   const products = useSelector((state)=> state.products.products)
-  const { productSlug } = useParams();
+  const { productSlug } = useParams(); //D-structure
+  // the same const productSlug = useParams().productSlug;
   const product = products.find((product) => product.slug === productSlug);
 
   if (!product) return <Redirect to="/products" />;

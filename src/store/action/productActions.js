@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ADD_PRODUCT, DELETE_PRODUCT, FETCH_PRODUCTS, UPDATE_PRODUCT } from "./types";
-
+//import instance from "./instance"
 
 
 export const deleteProduct = (productId) => {

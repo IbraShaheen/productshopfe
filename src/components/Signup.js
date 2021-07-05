@@ -46,7 +46,7 @@ const Signup = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="enter username"
+            placeholder="enter your username"
             onChange={handleChange}
             name="username"
             value={sign.username}
@@ -83,7 +83,7 @@ const Signup = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="enter the first name"
+            placeholder="enter your first name"
             onChange={handleChange}
             name="firstName"
             value={sign.firstName}
@@ -94,7 +94,7 @@ const Signup = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="enter the last name"
+            placeholder="enter your last name"
             onChange={handleChange}
             name="lastName"
             value={sign.lastName}

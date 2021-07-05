@@ -37,7 +37,7 @@ const FormProduct = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if(updatedProducts)
-    dispatch(updateProduct(product));
+    dispatch(updateProduct(product)); // product from useState
     else
     dispatch(addProduct(product,shopId));
     history.push("/products");
@@ -45,19 +45,19 @@ const FormProduct = () => {
   };
   const handleChange = (event) => {
     setProduct({ ...product, [event.target.name]: event.target.value });
+    //[key] : value,,  event.target.name > the name from the input
   };
   const handleImage=(event)=>{
-    setProduct({...product, image:event.target.files[0]})
+    setProduct({ ...product, image:event.target.files[0]})
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-        <label for="exampleFormControlInput1">Name of product</label>
+        <label>Name of product</label>
         <input
           type="text"
           className="form-control"
-          id="exampleFormControlInput1"
           placeholder="Name of product"
           onChange={handleChange}
           name="name"
@@ -65,11 +65,10 @@ const FormProduct = () => {
         />
       </div>
       <div className="form-group">
-        <label for="exampleFormControlInput1">Price of product</label>
+        <label>Price of product</label>
         <input
           type="number"
           className="form-control"
-          id="exampleFormControlInput1"
           placeholder="Price of product"
           onChange={handleChange}
           name="price"
@@ -78,11 +77,11 @@ const FormProduct = () => {
       </div>
 
       <div className="form-group">
-        <label for="exampleFormControlInput1">Description of product</label>
+        <label>Description of product</label>
         <input
           type="text"
           className="form-control"
-          id="exampleFormControlInput1"
+          
           placeholder="Description of product"
           onChange={handleChange}
           name="description"
@@ -90,15 +89,15 @@ const FormProduct = () => {
         />
       </div>
       <div className="form-group">
-        <label for="exampleFormControlInput1">Image of product</label>
+        <label>Image of product</label>
         <input
           type="file"
           className="form-control"
-          id="exampleFormControlInput1"
           placeholder="Image of product"
           onChange={handleImage}
           name="image"
           // value={product.image}
+          // multiple= false
         />
       </div>
       <button type="submit" className="btn btn-dark">
