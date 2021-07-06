@@ -60,7 +60,7 @@ export const signin = (userData, history) => {
     };
   };
   
-  
+  //history as prop from Nav Bar
   export const signout = (history) =>{
       history.push("/");
       return setUser()
@@ -90,12 +90,18 @@ export const signin = (userData, history) => {
 const setUser = (token) => {
 
     if(token) {
+
+      instance.defaults.headers.common.Authorization=`Bearer ${token}`;
+     
+
         localStorage.setItem("myToken", token)
         return{
             type: SET_USER,
             payload: decode(token)
         }
     } else {
+      delete instance.defaults.headers.common.Authorization;
+        // to delete the token when we press logout button
         localStorage.removeItem("myToken")
         return{
             type: SET_USER,
