@@ -23,6 +23,9 @@ export const deleteProduct = (productId) => {
 export const addProduct = (product , shopId)=> {
     return async(dispatch)=>{
         try {
+            console.log(product);
+            console.log(shopId);
+
             const formData= new FormData();
             for(const key in product)
                formData.append(key,product[key])
@@ -65,7 +68,7 @@ export const fetchProducts = ()=>{
     return async (dispatch)=>{
     try {
         const res = await instance.get("/products");
-        console.log(res.data)
+      // console.log(res.data)
         dispatch({
             type:FETCH_PRODUCTS,
             payload: res.data,
